@@ -1,8 +1,10 @@
-const inputRef = document.querySelector('#name-input');
+const input = document.querySelector('#name-input');
+const nameOutput = document.querySelector('#name-output');
 
-const onImputChenge = () => {
-  document.querySelector('#name-output').textContent =
-    event.currentTarget.value;
-};
+input.addEventListener('input', onInputChange);
 
-inputRef.addEventListener('input', onImputChenge);
+function onInputChange() {
+    event.currentTarget.value.length === 0 
+        ? nameOutput.textContent = 'незнакомец' 
+        : nameOutput.textContent = event.currentTarget.value;
+}
